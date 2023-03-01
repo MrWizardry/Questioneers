@@ -35,8 +35,8 @@ public class Botoes_Menu_Inicio : MonoBehaviour
         Config.clicked += ConfigPress;
         Quit.clicked += QuitPress;
         Beck.clicked += BeckPress;
-        Res1.focusable = Res1Focus;
-        Res2.focusable = Res2Focus;
+        //Res1.focusable = Res1Focus;
+        //Res2.focusable = Res2Focus;
     }
     void StartPress()
     {
@@ -61,7 +61,7 @@ public class Botoes_Menu_Inicio : MonoBehaviour
         MenuCon.style.display = DisplayStyle.None;
     }
 
-    void Res1Focus() 
+    /*void Res1Focus() 
     {   
         Screen.SetResolution(1920,1080, true);
         
@@ -78,5 +78,5 @@ public class Botoes_Menu_Inicio : MonoBehaviour
         {
             Res2.focusable = true;
         }
-    }
+    }*/
 }
