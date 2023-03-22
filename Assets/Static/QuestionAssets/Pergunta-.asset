@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb035438f78aea41b51e6ae1c5194f2, type: 3}
   m_Name: Pergunta-
   m_EditorClassIdentifier: 
-  enunciado: 
-  alternativas: []
-  respostaCorreta: 0
+  enunciado: "Qual foi o evento que marcou o in\xEDcio da Segunda Guerra Mundial?"
+  alternativas:
+  - "O ataque japon\xEAs \xE0 base naval americana de Pearl Harbor."
+  - "A invas\xE3o da Uni\xE3o Sovi\xE9tica pela Alemanha nazista."
+  - "A invas\xE3o da Pol\xF4nia pela Alemanha nazista."
+  - O bombardeio de Hiroshima e Nagasaki.
+  respostaCorreta: 2
   id: 
