@@ -8,19 +8,32 @@ using UnityEngine;
 public class GameManager: MonoBehaviour
 {
     [SerializeField] private PerguntasSO perguntaAtual;
-
     
     [SerializeField] private TextMeshProUGUI textoEnunciado;
-    [SerializeField] private TextMeshProUGUI[] textoAlterna;
+    [SerializeField] private GameObject[] alternativaTMP;
 
     public void Start()
     {
         textoEnunciado.SetText(perguntaAtual.GetEnunciado());
-        for (int i = 0; i < textoAlterna.Length; i++)
+
+        string[] alternativas = perguntaAtual.GetAlternativa;
+        
+        for (int i = 0; i < alternativaTMP.Length; i++)
         {
-            textoAlterna[i].SetText(perguntaAtual.getAlternativa[i]);
+            TextMeshProUGUI textAlter = alternativaTMP[i].GetComponentInChildren<TextMeshProUGUI>();
+            textAlter.SetText(alternativas[i]);
         }
     }
-    
 
+    public void TaCorreta(int alterSelec)
+    {
+        if (alterSelec == perguntaAtual.GetRespostaCorreta())
+        {
+            Debug.Log("parabens");
+        }
+        else
+            Debug.Log("seu merda, lixo, burro");
+        
+        Debug.Log("Corno FDP" + alterSelec);
+    }
 }
