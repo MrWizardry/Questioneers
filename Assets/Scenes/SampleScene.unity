@@ -2213,6 +2213,8 @@ MonoBehaviour:
   - {fileID: 1065441985}
   spriteRespostaCorreta: {fileID: 21300000, guid: af2343fdb2ff50c45a0fb351704b5af9, type: 3}
   spriteRespostaIncorreta: {fileID: 21300000, guid: d4ee7cba10e4af74fab9f531d2066bf2, type: 3}
+  tempoSlider: {fileID: 2051428158}
+  tempodoJogo: 60
 --- !u!4 &1827130766
 Transform:
   m_ObjectHideFlags: 0
@@ -2449,7 +2451,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 60
   m_WholeNumbers: 0
-  m_Value: 22.6
+  m_Value: 60
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
