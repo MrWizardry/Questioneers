@@ -2211,6 +2211,8 @@ MonoBehaviour:
   - {fileID: 2097825270}
   - {fileID: 609923893}
   - {fileID: 1065441985}
+  spriteRespostaCorreta: {fileID: 21300000, guid: af2343fdb2ff50c45a0fb351704b5af9, type: 3}
+  spriteRespostaIncorreta: {fileID: 21300000, guid: d4ee7cba10e4af74fab9f531d2066bf2, type: 3}
 --- !u!4 &1827130766
 Transform:
   m_ObjectHideFlags: 0
