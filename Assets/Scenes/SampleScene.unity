@@ -2213,8 +2213,6 @@ MonoBehaviour:
   - {fileID: 1065441985}
   spriteRespostaCorreta: {fileID: 21300000, guid: af2343fdb2ff50c45a0fb351704b5af9, type: 3}
   spriteRespostaIncorreta: {fileID: 21300000, guid: d4ee7cba10e4af74fab9f531d2066bf2, type: 3}
-  tempoSlider: {fileID: 2051428158}
-  tempodoJogo: 10
 --- !u!4 &1827130766
 Transform:
   m_ObjectHideFlags: 0
@@ -2375,6 +2373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051428157}
   - component: {fileID: 2051428158}
+  - component: {fileID: 2051428159}
   m_Layer: 0
   m_Name: Temporizador
   m_TagString: Untagged
@@ -2449,12 +2448,25 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 60
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 60
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2051428159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051428156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da417d7477e8934f878080f215dbcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxTime: 10
 --- !u!1 &2097825270
 GameObject:
   m_ObjectHideFlags: 0
