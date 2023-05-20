@@ -21,7 +21,10 @@ public class PerguntasSO : ScriptableObject
         return enunciado;
     }
 
-    public string[] GetAlternativa => alternativas;
+    public string[] GetAlternativa()
+    {
+        return alternativas; 
+    }
 
 
     public int GetRespostaCorreta()

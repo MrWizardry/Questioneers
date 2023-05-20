@@ -4,33 +4,61 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-[RequireComponent(typeof(Slider))]
 public class Timer : MonoBehaviour
 {   
     [Header("Temporizador")]
     [SerializeField] private float _maxTime;
+    [SerializeField]private Slider _slider;
     private float _actuTime;
+    private bool _isCounting;
 
-    private Slider _slider;
+    public delegate void OnMaxTimeAchi();
+    public OnMaxTimeAchi onMaxTimeAchi;
+    
     private void Start()
     {
         _actuTime = 0f;
-        _slider = GetComponent<Slider>();
         _slider.maxValue = _maxTime;
         _slider.value = _actuTime;
+        _isCounting = true;
     }
 
     private void Update()
     {
-        _actuTime += 1 * Time.deltaTime;
-        _slider.value = _actuTime;
-
-        if (_actuTime > _maxTime)
+        if (_isCounting)
         {
-            Debug.Log("O disco Voador");
-            Debug.Log(_actuTime);
-            _actuTime = 0f;
+            _actuTime += 1 * Time.deltaTime;
             _slider.value = _actuTime;
+
+            if (_actuTime > _maxTime)
+            {
+                if (onMaxTimeAchi == null)
+                    return;
+                Stop();
+            }
         }
     }
+
+    public void RegisMaxTime(OnMaxTimeAchi method)
+    {
+        onMaxTimeAchi += method;
+    }
+
+    public void Stop()
+    {
+        _isCounting = false;
+
+        if (onMaxTimeAchi != null)
+        {
+            onMaxTimeAchi();
+        }
+    }
+
+    public void Zerar()
+    {
+        _actuTime = 0f;
+        _slider.value = _actuTime;
+        _isCounting = true;
+    }
+    
 }
