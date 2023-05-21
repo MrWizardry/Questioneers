@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0eb035438f78aea41b51e6ae1c5194f2, type: 3}
-  m_Name: Pergunta-2
+  m_Name: Pergunta-10
   m_EditorClassIdentifier: 
-  enunciado: Qual foi o principal motivo para os Estados Unidos entrarem na Segunda
-    Guerra Mundial?
+  enunciado: "Qual foi a principal estrat\xE9gia utilizada pelos Estados Unidos para
+    derrotar o Jap\xE3o?"
   alternativas:
-  - "A amea\xE7a do Jap\xE3o ao territ\xF3rio americano."
-  - "A expans\xE3o do comunismo na Europa."
-  - "A amea\xE7a da Alemanha nazista \xE0 paz mundial."
-  - "A necessidade de vingan\xE7a pelo ataque a Pearl Harbor"
-  respostaCorreta: 0
-  id: 2
+  - Guerra de trincheiras
+  - "Ataques a\xE9reos maci\xE7os"
+  - Blitzkrieg
+  - "Invas\xE3o terrestre"
+  respostaCorreta: 1
+  id: 10

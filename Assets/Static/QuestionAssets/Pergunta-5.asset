@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0eb035438f78aea41b51e6ae1c5194f2, type: 3}
-  m_Name: Pergunta-2
+  m_Name: Pergunta-5
   m_EditorClassIdentifier: 
-  enunciado: Qual foi o principal motivo para os Estados Unidos entrarem na Segunda
-    Guerra Mundial?
+  enunciado: "Qual foi a principal estrat\xE9gia militar japonesa durante a Segunda
+    Guerra Mundial?"
   alternativas:
-  - "A amea\xE7a do Jap\xE3o ao territ\xF3rio americano."
-  - "A expans\xE3o do comunismo na Europa."
-  - "A amea\xE7a da Alemanha nazista \xE0 paz mundial."
-  - "A necessidade de vingan\xE7a pelo ataque a Pearl Harbor"
-  respostaCorreta: 0
-  id: 2
+  - Atacar a costa oeste dos Estados Unidos
+  - "Conquistar a Austr\xE1lia e a Nova Zel\xE2ndia"
+  - "Invadir a \xCDndia e a Birm\xE2nia"
+  - "Estender o controle sobre o Pac\xEDfico e o Sudeste Asi\xE1tico"
+  respostaCorreta: 3
+  id: 5

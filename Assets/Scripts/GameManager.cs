@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor;
 using Image =  UnityEngine.UI.Image;
 using Button = UnityEngine.UI.Button;
 using UnityEngine;
@@ -16,6 +17,14 @@ public class GameManager: MonoBehaviour
     [SerializeField] private Sprite spriteRespostaCorreta;
     [SerializeField] private Sprite spriteRespostaIncorreta;
     [SerializeField] private Sprite spriteDefault;
+    
+    [Header("Canvas")]
+    [SerializeField] private Canvas congrats;
+    [SerializeField] private Canvas dumb;
+    [SerializeField] private Canvas menu;
+    [SerializeField] private Canvas Game;
+    [SerializeField] private Canvas time;
+    [SerializeField] private TextMeshProUGUI rightanswer;
 
     private Timer _timer;
     private int currentQuestionIndex;
@@ -80,6 +89,8 @@ public class GameManager: MonoBehaviour
             imgButon = alternativaTMP[alterSelec].GetComponent<Image>();
             ChangeButtonSprite(imgButon, spriteRespostaCorreta);
             Debug.Log("Boa");
+            
+            congrats.gameObject.SetActive(true);
         }
         else
         {
@@ -90,22 +101,10 @@ public class GameManager: MonoBehaviour
             ChangeButtonSprite(imgbuttoncorreta, spriteRespostaCorreta);
             
             Debug.Log("Burro");
+            rightanswer.text = perguntaAtual.GetAlternativa()[perguntaAtual.GetRespostaCorreta()];
+            dumb.gameObject.SetActive(true);
         }
-
-        if (currentQuestionIndex < questions.Length - 1)
-        {
-            currentQuestionIndex++;
-
-            perguntaAtual = questions[currentQuestionIndex];
-            
-            ResetQuest();
-            
-            TimeReset();
-            
-            DisplayQuestion();
-        }
-        else
-            Debug.Log("Não tem mais questões");
+        
        
     }
     
@@ -135,6 +134,51 @@ public class GameManager: MonoBehaviour
     
     void OnMaxTimeAchiv()
     {
-        Debug.Log("Parada");
+        DisableOptionButton();
     }
+
+    public void OnNextQuestion()
+    {
+        ResetQuest();
+            
+        TimeReset();
+        
+        currentQuestionIndex++;
+        
+        dumb.gameObject.SetActive(false);
+        congrats.gameObject.SetActive(false);
+        time.gameObject.SetActive(false);
+        
+        if (currentQuestionIndex < questions.Length)
+        {
+            perguntaAtual = questions[currentQuestionIndex];
+
+            DisplayQuestion();
+        }
+        else
+            menu.gameObject.SetActive(true);
+    }
+
+    public void menuSelected()
+    {
+        dumb.gameObject.SetActive(false);
+        congrats.gameObject.SetActive(false);
+        menu.gameObject.SetActive(true);
+    }
+
+    public void mainMenu()
+    {
+        menu.gameObject.SetActive(false);
+        Game.gameObject.SetActive(true);
+        ResetQuest();
+        TimeReset();
+        
+        for (int i = 0; i < alternativaTMP.Length; i++)
+        {
+            Button btn = alternativaTMP[i].GetComponent<Button>();
+            btn.enabled = true;
+        }
+        
+    }
+    
 }

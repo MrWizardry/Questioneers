@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0eb035438f78aea41b51e6ae1c5194f2, type: 3}
-  m_Name: Pergunta-2
+  m_Name: Pergunta-3
   m_EditorClassIdentifier: 
-  enunciado: Qual foi o principal motivo para os Estados Unidos entrarem na Segunda
-    Guerra Mundial?
+  enunciado: "Quais foram as principais pot\xEAncias do Eixo na Segunda Guerra Mundial?"
   alternativas:
-  - "A amea\xE7a do Jap\xE3o ao territ\xF3rio americano."
-  - "A expans\xE3o do comunismo na Europa."
-  - "A amea\xE7a da Alemanha nazista \xE0 paz mundial."
-  - "A necessidade de vingan\xE7a pelo ataque a Pearl Harbor"
+  - "Alemanha, It\xE1lia e Jap\xE3o."
+  - "Alemanha, Uni\xE3o Sovi\xE9tica e It\xE1lia."
+  - "Alemanha, Reino Unido e Jap\xE3o."
+  - "Alemanha, Fran\xE7a e It\xE1lia."
   respostaCorreta: 0
-  id: 2
+  id: 3
