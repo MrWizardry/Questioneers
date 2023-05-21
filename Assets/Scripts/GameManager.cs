@@ -20,13 +20,11 @@ public class GameManager: MonoBehaviour
     
     [Header("Canvas")]
     [SerializeField] private Canvas congrats;
-    [SerializeField] private Canvas dumb;
-    [SerializeField] private Canvas menu;
-    [SerializeField] private Canvas Game;
-    [SerializeField] private Canvas time;
+    [SerializeField] private Canvas dumb, menu, game, time;
     [SerializeField] private TextMeshProUGUI rightanswer;
 
     private Timer _timer;
+    private bool isTimeUp = false;
     private int currentQuestionIndex;
     public void Start()
     {
@@ -84,29 +82,42 @@ public class GameManager: MonoBehaviour
         TimeStop();
         Image imgButon;
         
-        if (alterSelec == perguntaAtual.GetRespostaCorreta())
-        {
-            imgButon = alternativaTMP[alterSelec].GetComponent<Image>();
-            ChangeButtonSprite(imgButon, spriteRespostaCorreta);
-            Debug.Log("Boa");
-            
-            congrats.gameObject.SetActive(true);
-        }
-        else
-        {
-            imgButon = alternativaTMP[alterSelec].GetComponent<Image>();
-            ChangeButtonSprite(imgButon, spriteRespostaIncorreta);
-
-            Image imgbuttoncorreta = alternativaTMP[perguntaAtual.GetRespostaCorreta()].GetComponent<Image>();
-            ChangeButtonSprite(imgbuttoncorreta, spriteRespostaCorreta);
-            
-            Debug.Log("Burro");
-            rightanswer.text = perguntaAtual.GetAlternativa()[perguntaAtual.GetRespostaCorreta()];
-            dumb.gameObject.SetActive(true);
-        }
         
-       
+            if (alterSelec == perguntaAtual.GetRespostaCorreta())
+            {
+                imgButon = alternativaTMP[alterSelec].GetComponent<Image>();
+                ChangeButtonSprite(imgButon, spriteRespostaCorreta);
+                Debug.Log("Boa");
+                
+                congrats.gameObject.SetActive(true);
+            }
+            else
+            {
+                imgButon = alternativaTMP[alterSelec].GetComponent<Image>();
+                ChangeButtonSprite(imgButon, spriteRespostaIncorreta);
+
+                Image imgbuttoncorreta = alternativaTMP[perguntaAtual.GetRespostaCorreta()].GetComponent<Image>();
+                ChangeButtonSprite(imgbuttoncorreta, spriteRespostaCorreta);
+                
+                Debug.Log("Burro");
+                rightanswer.text = perguntaAtual.GetAlternativa()[perguntaAtual.GetRespostaCorreta()];
+                dumb.gameObject.SetActive(true);
+                
+                if(!isTimeUp)
+                    time.gameObject.SetActive(true);
+            }
+        
+        
     }
+    
+    private void ResetQuestions()
+    {
+        currentQuestionIndex = 0;
+        perguntaAtual = questions[currentQuestionIndex];
+        DisplayQuestion();
+        time.gameObject.SetActive(false);
+    }
+
     
 // ----------- Travar as opções e trocar o sprite ----------- //
     public void DisableOptionButton()
@@ -134,6 +145,8 @@ public class GameManager: MonoBehaviour
     
     void OnMaxTimeAchiv()
     {
+        isTimeUp = true;
+        time.gameObject.SetActive(true);
         DisableOptionButton();
     }
 
@@ -142,6 +155,8 @@ public class GameManager: MonoBehaviour
         ResetQuest();
             
         TimeReset();
+
+        isTimeUp = false;
         
         currentQuestionIndex++;
         
@@ -163,15 +178,17 @@ public class GameManager: MonoBehaviour
     {
         dumb.gameObject.SetActive(false);
         congrats.gameObject.SetActive(false);
+        time.gameObject.SetActive(false);
         menu.gameObject.SetActive(true);
     }
 
     public void mainMenu()
     {
         menu.gameObject.SetActive(false);
-        Game.gameObject.SetActive(true);
+        game.gameObject.SetActive(true);
         ResetQuest();
         TimeReset();
+        ResetQuestions();
         
         for (int i = 0; i < alternativaTMP.Length; i++)
         {
